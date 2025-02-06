@@ -21,6 +21,7 @@ format:
       - default
       - customstyles.scss
     css: styles.css
+    include-after-body: _footer.html
     page-layout: full
 
 editor: visual
