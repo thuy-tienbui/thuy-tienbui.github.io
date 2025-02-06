@@ -20,7 +20,7 @@ about:
 
 ### Welcome!
 
-I am a broadly trained ecologist and science communicator focused on leveraging spatial data science to support conservation and management efforts. Some of my recent projects and experiences are highlighted on this website. Feel free to explore and get in touch!
+I am a broadly trained ecologist and science communicator that leverages spatial data science to support conservation and management efforts. Some of my recent projects and experiences are highlighted on this website. Feel free to explore and get in touch!
 
 ### Professional Interests
 
