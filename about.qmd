@@ -1,6 +1,5 @@
 ---
 title: About
-theme: customstyles.scss
 ---
 
 A lifelong Californian, I grew up in Orange County and moved to the Bay Area to attend UC Berkeley and frolic among the redwoods. After graduating with a degree in Conservation and Resource Studies, I traveled down the coast to sunny Santa Barbara, where I am completing my Master of Environmental Science and Management at UCSB’s Bren School. I am a passionate naturalist and ecologist, excited about collaborative land stewardship, native plants, and maps.
@@ -9,7 +8,7 @@ A lifelong Californian, I grew up in Orange County and moved to the Bay Area to 
 ## Photos
 
 ::: {layout-ncol="3"}
-![*Installing a soil moisture data logger with my field team*](media/field_team.jpg){.regular-hover}
+![*Installing soil moisture data loggers with my field team*](media/field_team.jpg){.regular-hover}
 
 ![*Helping out with fuels reduction at Russell Research Station*](media/russell.jpeg){.regular-hover}
 
