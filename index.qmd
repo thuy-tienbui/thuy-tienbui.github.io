@@ -1,0 +1,35 @@
+---
+title: "Thuy-Tien Bui"
+image: media/bio_pic.jpeg
+toc: false
+about:
+  template: trestles
+  image-shape: round
+  image-width: 20em
+  links: 
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/thuy-tien-bui-7b2697184/
+    - icon: github
+      text: GitHub
+      href: https://github.com/thuy-tienbui
+    - icon: envelope
+      text: Email
+      href: mailto:thuy-tienbui@ucsb.edu
+---
+
+### Welcome!
+
+I am a broadly trained ecologist and science communicator focused on leveraging spatial data science to advance conservation efforts. Some of my recent projects and experiences are highlighted on this website. Feel free to explore and get in touch!
+
+### Professional Interests
+
+Landscape ecology | Fire ecology | Geographic Information Systems | Remote Sensing | Climate Resiliency | Habitat Restoration | Collaborative Stewardship
+
+### Recent Works
+
+[Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape)
+
+[Wildlife Connectivity Across the Central California Coast Region](files/Bui_Calbert_Smith_Final_Report.pdf)
+
+[Coyote Watershed Management Plan](files/coyote_watershed_plan.pdf)

@@ -1,0 +1,18 @@
+---
+title: "Why the insect crisis should really bug us"
+description: |
+  An op-ed on insect loss originally published in Perennial: The Undergraduate Environmental Journal of Berkeley
+author:
+  - name: Thuy-Tien Bui
+date: 2022-06-06
+image: mission_blue.jpg
+project:
+  output-dir: "_site"
+  resources: ["docs/"]
+html:
+  css: styles.css
+  toc: false
+  page-layout: full
+---
+
+<iframe src="insect_crisis_oped.pdf" width="100%" height="1100px"></iframe>

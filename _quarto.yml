@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Thuy-Tien Bui"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: projects.qmd
+        text: Projects
+      - href: publications.qmd
+        text: Publications
+
+format:
+  html:
+    theme:   
+      - default
+      - customstyles.scss
+    css: styles.css
+    page-layout: full
+
+editor: visual
+
+
+
+
+

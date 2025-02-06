@@ -1,0 +1,65 @@
+---
+title: About
+theme: customstyles.scss
+---
+
+A lifelong Californian, I grew up in Orange County and moved to the Bay Area to attend UC Berkeley and frolic among the redwoods. After graduating with a degree in Conservation and Resource Studies, I traveled down the coast to sunny Santa Barbara, where I am completing my Master of Environmental Science and Management at UCSB’s Bren School. I am a passionate naturalist and ecologist, excited about collaborative land stewardship, native plants, and maps.
+
+:::: panel-tabset
+## Photos
+
+::: {layout-ncol="3"}
+![*Installing a soil moisture data logger with my field team*](media/field_team.jpg){.regular-hover}
+
+![*Helping out with fuels reduction at Russell Research Station*](media/russell.jpeg){.regular-hover}
+
+![*Testing burn box experiements with a PhD student at Sedgwick Reserve*](media/burn_box.jpg){.regular-hover}
+
+![*Knee deep in ice plant conducting vegetation surveys for NASA's SHIFT campaign at the Jack and Laura Dangermond Preserve*](media/ice_plant.JPEG){.regular-hover}
+
+![*Prescribed fire TREX at Sedgwick Reserve*](media/rx_burn.jpeg){.regular-hover}
+
+![*Observing a tree felling demonstration by members of the Forestry and Fire Recruitment Program (FFRP)*](media/ffrp.JPG){.regular-hover}
+
+![*Me next to a Sequoiadendron giganteum circa 2006*](media/yose.JPG){.regular-hover}
+
+![*Setting a bucking saw for a logging demo*](media/logging.jpg){.regular-hover}
+
+![*Teaching my field class about herpetology*](media/herps.jpeg){.regular-hover}
+:::
+
+## Education & Certifications
+
+### Education
+
+**Master of Environmental Science and Management**
+
+> University of California, Santa Barbara
+
+**Bachelor of Science, Conservation and Resource Studies**
+
+> University of California, Berkeley
+
+### Certifications
+
+> NOLS Wilderness/Remote Location First Aid
+>
+> NASA ARSET Invasive Species Monitoring with Remote Sensing
+>
+> NASA ARSET Drought Monitoring, Prediction, and Projection with NASA Earth System Data
+
+## Skillsets
+
+**Data Analysis & Visualization**
+
+R/R Studio, GitHub, ggplot, Leaflet, Shiny, Wallace, prioritizr, bipartite
+
+**Geospatial Analysis & Remote Sensing**
+
+R, ArcGIS Pro, ArcGIS Online, Google Earth Engine, QGIS
+
+**Fieldwork**
+
+Coastal sage scrub plant identification, eDNA collection, insect rearing and net trapping, UTV operation, chainsaw operation and safety
+::::
+

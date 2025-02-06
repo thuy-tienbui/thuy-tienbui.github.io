@@ -1,0 +1,41 @@
+---
+title: "Conceptual prescribed burn planning at Sedgwick Reserve"
+description: |
+  A suitability analysis for future prescribed fire sites at Sedgwick Reserve
+author:
+  - name: Thuy-Tien Bui
+date: 2024-03-12
+image: rx_burn_sedgwick.jpg
+categories: [GIS, Fire, Forestry]
+project:
+  output-dir: "_site"
+  resources: ["projects/"]
+html:
+  css: styles.css
+  toc: false
+  page-layout: full
+---
+
+**Background**
+
+With growing interest in the use of controlled burning as an effective land management strategy, there is also a growing need to train prescribed fire practitioners. In response to this, The Nature Conservancy (TNC), in partnership with the U.S. Forest Service hosts Prescribed Fire Training Exchanges (TREX) that provide the necessary workforce training and learning experience to safely conduct prescribed burns.
+
+Sedgwick Reserve, one of the 42 reserves in the statewide UC Natural Reserve System, spans 6,000 acres of coastal sage scrub and oak woodland commmunities. Situated in the wildland urban interface of the Santa Ynez Foothills, the reserve offers a unique opportunity to unite fire practitioners and researchers around intentional fire to reduce fire risk and understand the ecological effects of controlled fire on the landscape. There have been two TREX's at the reserve led by TNC Fire Management and the Santa Barbara County Fire Department, with plans for future burns.
+
+![**Figure 1.** Map of the Sedgwick Reserve boundary and location.](ca_sedgwick_map.png)
+
+This project aims to identify suitable locations in the reserve for a future prescribed burn through a raster suitability analysis. This framework for geospatial burn planning has been used by land management agencies like the [National Park Service](https://www.nps.gov/seki/learn/nature/fic_frid97.htm) to select critical areas for burning. I identified the most suitable areas for a future prescribed burn by weighing factors such as slope, vegetation, soils, geology, historical fire perimeters, proximity to roads, and building infrastructure.
+
+![**Figure 2.** Workflow and methods schematic.](Conceptual_Map.png)
+
+::: {style="display: flex; justify-content: center;"}
+<img src="opp_map.png" width="49%" style="margin-right: 10px;"/> <img src="cons_map.png" width="49%"/>
+:::
+
+<figcaption>**Figure 3.** Weighted opportunities factors and suitability scores (A) shows suitable areas in the northern region of the reserve. Weighted constraint factors (B) indicates the southern region of the reserve, where infrastructure is located, is highly unsuitable.</figcaption>
+
+<br><br> Combining the opportunities and constraints, I generated the composite suitability map below.
+
+![**Figure 4.** This final composite suitability map combines the opportunities and constraints to reveal areas with the highest suitability scores, outlined in red.](composite_map.png)
+
+It is important to note that this analysis is not comprehensive, but can serve as a starting point for prescribed burn planning. Prescribed burn planning is a dynamic process that takes into account numerous factors such as weather, safety, and potential hazards that can't be determined from this data. Consultation with fire practitioners, fire departments, land managers, and researchers is required in addition to a suitability analysis. Being able to visualize suitable areas is important for planning management efforts at landscape scales, but expert opinion and on the ground knowledge is critical to informing these decisions.

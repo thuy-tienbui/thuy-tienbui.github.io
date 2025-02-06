@@ -1,0 +1,80 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// Colors
+$forestgreen: #356854;
+$white: #FFF;
+$orange: #F79122	;
+$beige: #FBF2E6;
+
+// Base document colors
+$navbar-bg: $forestgreen; // navbar
+$navbar-fg: $white;
+$navbar-hl: $orange; // highlight color when hovering over navbar links
+$body-bg: $white;
+$footer-bg: $forestgreen; // footer 
+$footer-fg: $white;
+$link-color: $orange; // hyperlinks 
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #356854;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.navbar {
+  background-color: #356854;}
+
+
+.quarto-listing .thumbnail img {
+    object-fit: cover;   /* Ensures consistent cropping */
+    aspect-ratio: 4/3; /* Adjust as needed (e.g., 16/9 or 1/1 for square) */
+    height: 190px;       /* Set a consistent height */
+    width: auto;         /* Maintains proportions */
+    vertical-align: top; /* Forces top alignment */
+}
+
+.regular-hover {
+    border-radius: 0px; /* Rounds the edges of the image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.regular-hover:hover {
+    transform: scale(1.03); /* Slightly enlarge the image */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+.toc-floating {
+  display: none;
+}
+
+/*-- scss:rules --*/
+h1 {
+  color: #356854;
+  letter-spacing: 3px;
+}
+
+h3 {
+  color: #356854;
+  letter-spacing: 1px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Adjust as needed
+  gap: 20px; // Adjust for spacing
+  padding: 20px;
+}
+
+.blog-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px; // Optional for rounded corners
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // Optional for depth
+}
