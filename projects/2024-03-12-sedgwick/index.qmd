@@ -16,7 +16,7 @@ html:
   page-layout: full
 ---
 
-**Background**
+### Background
 
 With growing interest in the use of controlled burning as an effective land management strategy, there is also a growing need to train prescribed fire practitioners. In response to this, The Nature Conservancy (TNC), in partnership with the U.S. Forest Service hosts Prescribed Fire Training Exchanges (TREX) that provide the necessary workforce training and learning experience to safely conduct prescribed burns.
 
@@ -24,9 +24,13 @@ Sedgwick Reserve, one of the 42 reserves in the statewide UC Natural Reserve Sys
 
 ![**Figure 1.** Map of the Sedgwick Reserve boundary and location.](ca_sedgwick_map.png)
 
+### Methods
+
 This project aims to identify suitable locations in the reserve for a future prescribed burn through a raster suitability analysis. This framework for geospatial burn planning has been used by land management agencies like the [National Park Service](https://www.nps.gov/seki/learn/nature/fic_frid97.htm) to select critical areas for burning. I identified the most suitable areas for a future prescribed burn by weighing factors such as slope, vegetation, soils, geology, historical fire perimeters, proximity to roads, and building infrastructure.
 
 ![**Figure 2.** Workflow and methods schematic.](Conceptual_Map.png)
+
+### Results
 
 ::: {style="display: flex; justify-content: center;"}
 <img src="opp_map.png" width="49%" style="margin-right: 10px;"/> <img src="cons_map.png" width="49%"/>

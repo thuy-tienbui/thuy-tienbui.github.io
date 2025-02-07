@@ -1,0 +1,102 @@
+---
+title: "Analyzing temperature and precipitation in Peru from global climate earth observations"
+description: |
+  An analysis of temperature and precipitation trends using ERA5 precipitation and temperature data obtained from Google Earth Engine
+author:
+  - name: Thuy-Tien Bui
+date: 2025-01-22
+categories: [GIS, Remote Sensing, Climate]
+image: era5.png
+project:
+  output-dir: "_site"
+  resources: ["projects/"]
+format:
+  html:
+    embed-resources: true
+    code-fold: true
+    toc: false
+    page-layout: full
+echo: true
+message: false
+warning: false
+draft: true
+---
+
+### Analyzing and Visualizing Temperature in Peru from 2010-2020
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(lubridate)
+library(doBy)
+library(mosaic)
+library(car)
+library(sf)
+library(sjPlot)
+library(here)
+library(RColorBrewer)
+library(classInt)
+library(viridis)
+library(leaflet)
+library(dplyr)
+library(lubridate)
+```
+
+```{r}
+Peru_dist <- read_sf(here("data", "per_admbnda_adm3_2018.shp"))
+
+Peru_dist_temp <- read.csv(here("data", "Peru_Temperature.csv")) # change file path if needed
+
+Peru_dist_temp$IDDIST <- str_pad(Peru_dist_temp$IDDIST, 6, pad = "0") # pad with leading 0 to match IDDIST in shapefile
+Peru_dist_temp$system.index <- NULL
+
+Peru_dist_temp_merge <- merge(Peru_dist, Peru_dist_temp, by=c("IDDIST"), all.x=T, all.y=T)
+
+valid_values_temp <- Peru_dist_temp_merge$mean[!is.na(Peru_dist_temp_merge$mean)]
+
+pal <- colorNumeric(palette = "YlOrRd", domain = Peru_dist_temp_merge$mean)
+
+leaflet(Peru_dist_temp_merge) %>%
+  addTiles() %>%
+  addPolygons(fillColor = ~pal(mean),  # color scale applied to 'mean' temperature values
+             fillOpacity = 1, 
+             color = "black", 
+              weight = 0.5,
+              popup = ~paste("District:", ADM3_ES, "<br>", "Temperature (C):", round(mean, 2))) %>%
+  addLegend(pal = pal, values = valid_values_temp, 
+             na.label = NULL,
+            title = "Temperature (C)", opacity = 1)
+```
+
+> Temperature in Peru is highest in the Amazon Forest region and along the coast. Lowest temperatures are observed at high elevations in the Andes Mountain range.
+
+### Analyzing and Visualizing Precipitation in Peru from 2010-2020
+
+```{r}
+Peru_dist_precip <- read.csv(here("data", "Peru_Precipitation.csv")) # change file path if needed
+
+Peru_dist_precip$IDDIST <- str_pad(Peru_dist_precip$IDDIST, 6, pad = "0") # pad with leading 0 to match IDDIST in shapefile
+
+Peru_dist_precip$mean <- Peru_dist_precip$mean*1000
+
+Peru_dist_precip_merge <- merge(Peru_dist, Peru_dist_precip, by=c("IDDIST"), all.x=T, all.y=T)
+
+breaks <- pretty(Peru_dist_precip_merge$mean, n = 20)
+
+pal <- colorNumeric(palette = "YlGnBu", domain = Peru_dist_precip_merge$mean)
+
+valid_values <- Peru_dist_precip_merge$mean[!is.na(Peru_dist_precip_merge$mean)]
+
+leaflet(Peru_dist_precip_merge) %>%
+  addTiles() %>%
+  addPolygons(fillColor = ~pal(mean),  # color scale applied to 'mean' temperature values
+              fillOpacity = 1, 
+              color = "black", 
+              weight = 0.5,
+              popup = ~paste("District:", ADM3_ES, "<br>", "Precipitation (mm):", round(mean, 2))) %>%
+  addLegend(pal = pal, values = valid_values, 
+             na.label = NULL,
+            title = "Precipitation (mm)", opacity = 1)
+```
+
+> Average annual precipitation in Peru from 2010-2020 is notably highest in the District of Camanti. High average annual precipitation is also observed in the Amazon Forest region. Low levels of precipitation are observed along the coast and southern region of Peru.
