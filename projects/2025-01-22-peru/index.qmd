@@ -8,7 +8,6 @@ date: 2025-01-22
 categories: [GIS, Remote Sensing, Climate]
 image: era5.png
 project:
-  output-dir: "_site"
   resources: ["projects/"]
 format:
   html:

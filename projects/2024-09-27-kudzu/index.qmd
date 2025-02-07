@@ -7,13 +7,14 @@ author:
 date: 2024-09-27
 image: kudzu.jpg
 categories: [GIS, Forestry, Climate]
-project:
-  output-dir: "_site"
-  resources: ["projects/"]
 html:
   css: styles.css
   toc: false
   page-layout: full
+execute:
+  echo: true
+  message: false
+  warning: false
 ---
 
 ### Background
