@@ -7,8 +7,6 @@ author:
 date: 2025-01-22
 categories: [GIS, Remote Sensing, Climate]
 image: era5.png
-project:
-  resources: ["projects/"]
 format:
   html:
     embed-resources: true
@@ -18,7 +16,6 @@ format:
 echo: true
 message: false
 warning: false
-draft: true
 ---
 
 ### Analyzing and Visualizing Temperature in Peru from 2010-2020
@@ -282,7 +279,6 @@ ggplot(data = Peru_dist_temp_merge) +
   labs(title = "Temperature Distribution Across Districts in Peru") +
   theme_minimal() +
   theme(legend.position = "right")
-
 ##Code for creating an initeractive map using leaflet (too computational for website rendering)
 
 #pal <- colorNumeric(palette = "YlOrRd", domain = Peru_dist_temp_merge$mean)
@@ -300,6 +296,32 @@ ggplot(data = Peru_dist_temp_merge) +
 ```
 
 > Temperature in Peru is highest in the Amazon Forest region and along the coast. Lowest temperatures are observed at high elevations in the Andes Mountain range.
+
+```{r}
+temp_19 <- read.csv(here("data", "temperature_19.csv"))
+
+colnames(temp_19)[colnames(temp_19) == "system.time_start"] <- "date"
+
+temp_19 <- temp_19 %>%
+  mutate(date = as.Date(date, format = "%b %d, %Y"))
+
+temp_19$month <- format(temp_19$date, "%B")
+
+ggplot(temp_19, aes(x = date, y = temperature_2m)) +
+  geom_line(size = 1.2, color="darkorange2") +
+  labs(title = "2019 Average Daily Temperature in Peru", 
+       x = "Month", 
+       y = "Temperature (°C)") +
+  scale_x_date(
+    date_breaks = "1 month",  # Breaks at every month
+    date_labels = "%B"       # Display full month names
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(legend.position = "bottom")
+```
+
+> Average daily temperature displays seasonal patterns within the year. Warmer temperatures between January-April mark the summer season, while a drop in temperatures during July and August mark the peak of winter.
 
 ### Analyzing and Visualizing Precipitation in Peru from 2010-2020
 
@@ -327,7 +349,6 @@ ggplot(data = Peru_dist_precip_merge) +
   labs(title = "Precipitation Distribution Across Districts in Peru") +
   theme_minimal() +
   theme(legend.position = "right")
-
 ##Code for creating an initeractive map using leaflet (too computational for website rendering)
 
 #pal <- colorNumeric(palette = "YlGnBu", domain = Peru_dist_precip_merge$mean)
@@ -345,3 +366,29 @@ ggplot(data = Peru_dist_precip_merge) +
 ```
 
 > Average annual precipitation in Peru from 2010-2020 is notably highest in the District of Camanti. High average annual precipitation is also observed in the Amazon Forest region. Low levels of precipitation are observed along the coast and southern region of Peru.
+
+```{r}
+precip_19 <- read.csv(here("data", "precipitation_19.csv"))
+
+colnames(precip_19)[colnames(precip_19) == "system.time_start"] <- "date"
+
+precip_19 <- precip_19 %>%
+  mutate(date = as.Date(date, format = "%b %d, %Y"))
+
+precip_19$month <- format(precip_19$date, "%B")
+
+ggplot(precip_19, aes(x = date, y = total_precipitation_sum)) +
+  geom_line(size = 1.2, color="cornflowerblue") +
+  labs(title = "2019 Average Daily Precipitation in Peru", 
+       x = "Month", 
+       y = "Precipitation (mm)") +
+  scale_x_date(
+    date_breaks = "1 month",  # Breaks at every month
+    date_labels = "%B"       # Display full month names
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(legend.position = "bottom")
+```
+
+> Average daily precipitation displays seasonal patterns within the year. High precipitation days between October to December mark the wet season, while the dry season is observed around June-September

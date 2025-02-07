@@ -7,9 +7,6 @@ author:
 date: 2024-09-10
 image: beaver_wetland.jpeg
 categories: [GIS, Communication, Watersheds]
-project:
-  output-dir: "_site"
-  resources: ["projects/"]
 html:
   css: styles.css
   toc: false

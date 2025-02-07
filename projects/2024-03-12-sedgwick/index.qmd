@@ -7,9 +7,6 @@ author:
 date: 2024-03-12
 image: rx_burn_sedgwick.jpg
 categories: [GIS, Fire, Forestry]
-project:
-  output-dir: "_site"
-  resources: ["projects/"]
 html:
   css: styles.css
   toc: false

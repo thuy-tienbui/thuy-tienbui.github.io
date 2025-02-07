@@ -7,9 +7,6 @@ author:
 date: 2024-08-30
 image: crb_restore.jpg
 categories: [GIS, Watersheds]
-project:
-  output-dir: "_site"
-  resources: ["projects/"]
 html:
   css: styles.css
   toc: false

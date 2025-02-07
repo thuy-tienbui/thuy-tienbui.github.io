@@ -7,9 +7,6 @@ author:
 date: 2022-12-05
 image: camp_fire.jpg
 categories: [GIS, Fire, Forestry]
-project:
-  output-dir: "_site"
-  resources: ["projects/"]
 html:
   css: styles.css
   toc: false
