@@ -279,7 +279,7 @@ ggplot(data = Peru_dist_temp_merge) +
   labs(title = "Temperature Distribution Across Districts in Peru") +
   theme_minimal() +
   theme(legend.position = "right")
-##Code for creating an initeractive map using leaflet (too computational for website rendering)
+##Code for creating an interactive map using leaflet (too computational for website rendering)
 
 #pal <- colorNumeric(palette = "YlOrRd", domain = Peru_dist_temp_merge$mean)
 
@@ -349,7 +349,7 @@ ggplot(data = Peru_dist_precip_merge) +
   labs(title = "Precipitation Distribution Across Districts in Peru") +
   theme_minimal() +
   theme(legend.position = "right")
-##Code for creating an initeractive map using leaflet (too computational for website rendering)
+##Code for creating an interactive map using leaflet (too computational for website rendering)
 
 #pal <- colorNumeric(palette = "YlGnBu", domain = Peru_dist_precip_merge$mean)
 
