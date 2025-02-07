@@ -42,30 +42,262 @@ library(dplyr)
 library(lubridate)
 ```
 
+Code for obtaining data through Google Earth Engine:
+
+```{r}
+#code for obtaining precipitation and temperature data from Google Earth Engine
+# ////////////////////////////////////////////////////////////
+# // visualize average temperature across Peru from 2010-2020:
+# ////////////////////////////////////////////////////////////
+# 
+# //filter climate data to date range of interest:
+# var ERA5_2010s = ERA5.filterDate('2010-01-01', '2020-01-01');
+# 
+# //select the temperature band of the images:
+# var ERA5_2010s_Temp = ERA5_2010s.select('temperature_2m');
+# 
+# var ERA5_2010s_Precip = ERA5_2010s.select('total_precipitation_sum')
+# 
+# //compute average temperature by pixel across the image collection,
+# //and clip resulting image to Peru:
+# var ERA5_2010s_Precip_Peru = ERA5_2010s_Precip.mean().clip(Peru);
+# 
+# //convert Kelvin to Celsius across the average temperature image:
+# var Peru_Temp_C = ERA5_2010s_Temp_Peru.subtract(273.15);
+# 
+# //add temperature image and Peru district shapefile to the map to visualize:
+# var styling = {color: 'black', fillColor: '00000000', width: 1};
+# Map.addLayer(Peru.style(styling));
+# Map.addLayer(Peru_Temp_C, {min:0, max:30, palette:['blue', 'limegreen', 'yellow', 'darkorange', 'red']});
+# 
+# //////////////////////////////////////////////////////////////////
+# // visualize time series of temperature in Madre de Dios District:
+# //////////////////////////////////////////////////////////////////
+# 
+# Map.addLayer(MDD); //use inspector to identify district to select
+# 
+# //select Huepetuhe:
+# var Huepetuhe = MDD.filter('NOMBDIST == "HUEPETUHE"');
+# 
+# //filter climate data to 2019:
+# var ERA5_2019 = ERA5.filterDate('2019-01-01', '2020-01-01');
+# 
+# //select the temperature band of the images and convert to Celsius:
+# var ERA5_2019_Temp = ERA5_2019.select('temperature_2m');
+# 
+# var ERA5_2019_Temp_C = ERA5_2019_Temp.map(function (image) {
+#   return image.subtract(273.15).copyProperties(image, ['system:time_start'])});
+# 
+# //Define the chart and print it to the console:
+# var chart =
+#     ui.Chart.image
+#         .series({
+#           imageCollection: ERA5_2019_Temp_C,
+#           region: Huepetuhe, //reduce by Huepetuhe district in Madre de Dios
+#           reducer: ee.Reducer.mean(),
+#           scale: 11132, //scale of raster data
+#         })
+#         .setOptions({
+#           title: 'Average Temperature by Date',
+#           hAxis: {title: 'Date', titleTextStyle: {italic: false, bold: true}},
+#           vAxis: {
+#             title: 'Temperature (celsius)',
+#             titleTextStyle: {italic: false, bold: true}
+#           },
+#           lineWidth: 2,
+#         });
+# print(chart);
+# 
+# 
+# /////////////////////////////////////////////////////
+# // Export temperature time series by district in MDD:
+# /////////////////////////////////////////////////////
+# 
+# //reduce 2010s temperature by MDD regions:
+# var ERA5_2010s_Temp_C = ERA5_2010s_Temp.map(function (image) {
+#   return image.subtract(273.15).copyProperties(image, ['system:time_start'])});
+# 
+# var reduced_ERA5_2010s = ERA5_2010s_Temp_C.map(function(image){
+#   return image.reduceRegions({
+#     collection: MDD, 
+#     reducer: ee.Reducer.mean(), 
+#     scale: 11132
+#   });
+# }).flatten();
+# 
+# Export.table.toDrive({
+#   collection: reduced_ERA5_2010s,
+#   description:'MDD_Temperature',
+#   selectors: ['system:index',	'IDDIST',	'mean'],
+#   fileFormat: 'csv'
+# });
+# 
+# 
+# ///////////////////////////////////////////////////////////////
+# // Export avg. temperature by district across Peru for mapping:
+# ///////////////////////////////////////////////////////////////
+# 
+# //reduce avg. temperature by Peru districts:
+# 
+# var reduced_Peru_Temp_C = Peru_Temp_C.reduceRegions({
+#     collection: Peru, 
+#     reducer: ee.Reducer.mean(), 
+#     scale: 11132
+#   });
+# 
+# Export.table.toDrive({
+#   collection: reduced_Peru_Temp_C,
+#   description:'Peru_Temperature',
+#   selectors: ['system:index',	'IDDIST',	'mean'],
+#   fileFormat: 'csv'
+# });
+#         
+# ////////////////////////////////////////////////////////////
+# // visualize average temperature across Peru from 2010-2020:
+# ////////////////////////////////////////////////////////////
+# 
+# //filter climate data to date range of interest:
+# var ERA5_2010s = ERA5.filterDate('2010-01-01', '2020-01-01');
+# 
+# //select the temperature band of the images:
+# var ERA5_2010s_Temp = ERA5_2010s.select('temperature_2m');
+# 
+# var ERA5_2010s_Precip = ERA5_2010s.select('total_precipitation_sum')
+# 
+# //compute average temperature by pixel across the image collection,
+# //and clip resulting image to Peru:
+# var ERA5_2010s_Precip_Peru = ERA5_2010s_Precip.mean().clip(Peru);
+# 
+# //convert Kelvin to Celsius across the average temperature image:
+# var Peru_Temp_C = ERA5_2010s_Temp_Peru.subtract(273.15);
+# 
+# //add temperature image and Peru district shapefile to the map to visualize:
+# var styling = {color: 'black', fillColor: '00000000', width: 1};
+# Map.addLayer(Peru.style(styling));
+# Map.addLayer(Peru_Temp_C, {min:0, max:30, palette:['blue', 'limegreen', 'yellow', 'darkorange', 'red']});
+# 
+# //////////////////////////////////////////////////////////////////
+# // visualize time series of temperature in Madre de Dios District:
+# //////////////////////////////////////////////////////////////////
+# 
+# Map.addLayer(MDD); //use inspector to identify district to select
+# 
+# //select Huepetuhe:
+# var Huepetuhe = MDD.filter('NOMBDIST == "HUEPETUHE"');
+# 
+# //filter climate data to 2019:
+# var ERA5_2019 = ERA5.filterDate('2019-01-01', '2020-01-01');
+# 
+# //select the temperature band of the images and convert to Celsius:
+# var ERA5_2019_Temp = ERA5_2019.select('temperature_2m');
+# 
+# var ERA5_2019_Temp_C = ERA5_2019_Temp.map(function (image) {
+#   return image.subtract(273.15).copyProperties(image, ['system:time_start'])});
+# 
+# //Define the chart and print it to the console:
+# var chart =
+#     ui.Chart.image
+#         .series({
+#           imageCollection: ERA5_2019_Temp_C,
+#           region: Huepetuhe, //reduce by Huepetuhe district in Madre de Dios
+#           reducer: ee.Reducer.mean(),
+#           scale: 11132, //scale of raster data
+#         })
+#         .setOptions({
+#           title: 'Average Temperature by Date',
+#           hAxis: {title: 'Date', titleTextStyle: {italic: false, bold: true}},
+#           vAxis: {
+#             title: 'Temperature (celsius)',
+#             titleTextStyle: {italic: false, bold: true}
+#           },
+#           lineWidth: 2,
+#         });
+# print(chart);
+# 
+# 
+# /////////////////////////////////////////////////////
+# // Export temperature time series by district in MDD:
+# /////////////////////////////////////////////////////
+# 
+# //reduce 2010s temperature by MDD regions:
+# var ERA5_2010s_Temp_C = ERA5_2010s_Temp.map(function (image) {
+#   return image.subtract(273.15).copyProperties(image, ['system:time_start'])});
+# 
+# var reduced_ERA5_2010s = ERA5_2010s_Temp_C.map(function(image){
+#   return image.reduceRegions({
+#     collection: MDD, 
+#     reducer: ee.Reducer.mean(), 
+#     scale: 11132
+#   });
+# }).flatten();
+# 
+# Export.table.toDrive({
+#   collection: reduced_ERA5_2010s,
+#   description:'MDD_Temperature',
+#   selectors: ['system:index',	'IDDIST',	'mean'],
+#   fileFormat: 'csv'
+# });
+# 
+# 
+# ///////////////////////////////////////////////////////////////
+# // Export avg. temperature by district across Peru for mapping:
+# ///////////////////////////////////////////////////////////////
+# 
+# //reduce avg. temperature by Peru districts:
+# 
+# var reduced_Peru_Temp_C = Peru_Temp_C.reduceRegions({
+#     collection: Peru, 
+#     reducer: ee.Reducer.mean(), 
+#     scale: 11132
+#   });
+# 
+# Export.table.toDrive({
+#   collection: reduced_Peru_Temp_C,
+#   description:'Peru_Temperature',
+#   selectors: ['system:index',	'IDDIST',	'mean'],
+#   fileFormat: 'csv'
+# });
+```
+
 ```{r}
 Peru_dist <- read_sf(here("data", "per_admbnda_adm3_2018.shp"))
 
-Peru_dist_temp <- read.csv(here("data", "Peru_Temperature.csv")) # change file path if needed
+Peru_dist_temp <- read.csv(here("data", "Peru_Temperature.csv"))
 
 Peru_dist_temp$IDDIST <- str_pad(Peru_dist_temp$IDDIST, 6, pad = "0") # pad with leading 0 to match IDDIST in shapefile
+
+#clean data
 Peru_dist_temp$system.index <- NULL
 
+#merge data
 Peru_dist_temp_merge <- merge(Peru_dist, Peru_dist_temp, by=c("IDDIST"), all.x=T, all.y=T)
 
 valid_values_temp <- Peru_dist_temp_merge$mean[!is.na(Peru_dist_temp_merge$mean)]
 
-pal <- colorNumeric(palette = "YlOrRd", domain = Peru_dist_temp_merge$mean)
+#map data
+ggplot(data = Peru_dist_temp_merge) +
+  geom_sf(aes(fill = mean), color = "black", size = 0.3) +  
+  scale_fill_distiller(name = "Temperature (C)", 
+                       palette = "YlOrRd", 
+                       direction = 1) + 
+  labs(title = "Temperature Distribution Across Districts in Peru") +
+  theme_minimal() +
+  theme(legend.position = "right")
 
-leaflet(Peru_dist_temp_merge) %>%
-  addTiles() %>%
-  addPolygons(fillColor = ~pal(mean),  # color scale applied to 'mean' temperature values
-             fillOpacity = 1, 
-             color = "black", 
-              weight = 0.5,
-              popup = ~paste("District:", ADM3_ES, "<br>", "Temperature (C):", round(mean, 2))) %>%
-  addLegend(pal = pal, values = valid_values_temp, 
-             na.label = NULL,
-            title = "Temperature (C)", opacity = 1)
+##Code for creating an initeractive map using leaflet (too computational for website rendering)
+
+#pal <- colorNumeric(palette = "YlOrRd", domain = Peru_dist_temp_merge$mean)
+
+#leaflet(Peru_dist_temp_merge) %>%
+#  addTiles() %>%
+#  addPolygons(fillColor = ~pal(mean),  # color scale applied to 'mean' temperature values
+#              fillOpacity = 1, 
+#              color = "black", 
+#              weight = 0.5,
+#              popup = ~paste("District:", ADM3_ES, "<br>", "Temperature (C):", round(mean, 2))) %>%
+#  addLegend(pal = pal, values = valid_values_temp, 
+#             na.label = NULL,
+#            title = "Temperature (C)", opacity = 1)
 ```
 
 > Temperature in Peru is highest in the Amazon Forest region and along the coast. Lowest temperatures are observed at high elevations in the Andes Mountain range.
@@ -73,30 +305,44 @@ leaflet(Peru_dist_temp_merge) %>%
 ### Analyzing and Visualizing Precipitation in Peru from 2010-2020
 
 ```{r}
-Peru_dist_precip <- read.csv(here("data", "Peru_Precipitation.csv")) # change file path if needed
+Peru_dist_precip <- read.csv(here("data", "Peru_Precipitation.csv"))
 
-Peru_dist_precip$IDDIST <- str_pad(Peru_dist_precip$IDDIST, 6, pad = "0") # pad with leading 0 to match IDDIST in shapefile
+Peru_dist_precip$IDDIST <- str_pad(Peru_dist_precip$IDDIST, 6, pad = "0") #pad with leading 0 to match IDDIST in shapefile
 
+#adjust precipitation to be in mm
 Peru_dist_precip$mean <- Peru_dist_precip$mean*1000
 
+#merge data
 Peru_dist_precip_merge <- merge(Peru_dist, Peru_dist_precip, by=c("IDDIST"), all.x=T, all.y=T)
 
 breaks <- pretty(Peru_dist_precip_merge$mean, n = 20)
 
-pal <- colorNumeric(palette = "YlGnBu", domain = Peru_dist_precip_merge$mean)
-
 valid_values <- Peru_dist_precip_merge$mean[!is.na(Peru_dist_precip_merge$mean)]
 
-leaflet(Peru_dist_precip_merge) %>%
-  addTiles() %>%
-  addPolygons(fillColor = ~pal(mean),  # color scale applied to 'mean' temperature values
-              fillOpacity = 1, 
-              color = "black", 
-              weight = 0.5,
-              popup = ~paste("District:", ADM3_ES, "<br>", "Precipitation (mm):", round(mean, 2))) %>%
-  addLegend(pal = pal, values = valid_values, 
-             na.label = NULL,
-            title = "Precipitation (mm)", opacity = 1)
+#map data
+ggplot(data = Peru_dist_precip_merge) +
+  geom_sf(aes(fill = mean), color = "black", size = 0.3) +
+  scale_fill_distiller(name = "Precipitation (mm)", 
+                       palette = "YlGnBu", 
+                       direction = 1) +
+  labs(title = "Precipitation Distribution Across Districts in Peru") +
+  theme_minimal() +
+  theme(legend.position = "right")
+
+##Code for creating an initeractive map using leaflet (too computational for website rendering)
+
+#pal <- colorNumeric(palette = "YlGnBu", domain = Peru_dist_precip_merge$mean)
+
+#leaflet(Peru_dist_precip_merge) %>%
+# addTiles() %>%
+#  addPolygons(fillColor = ~pal(mean),  # color scale applied to 'mean' temperature values
+#              fillOpacity = 1, 
+#              color = "black", 
+#              weight = 0.5,
+#              popup = ~paste("District:", ADM3_ES, "<br>", "Precipitation (mm):", round(mean, 2))) %>%
+#  addLegend(pal = pal, values = valid_values, 
+#             na.label = NULL,
+#            title = "Precipitation (mm)", opacity = 1)
 ```
 
 > Average annual precipitation in Peru from 2010-2020 is notably highest in the District of Camanti. High average annual precipitation is also observed in the Amazon Forest region. Low levels of precipitation are observed along the coast and southern region of Peru.

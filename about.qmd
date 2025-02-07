@@ -46,6 +46,8 @@ A lifelong Californian, I grew up in Orange County and moved to the Bay Area to 
 > NASA ARSET Invasive Species Monitoring with Remote Sensing
 >
 > NASA ARSET Drought Monitoring, Prediction, and Projection with NASA Earth System Data
+>
+> S-190 Wildland Fire Behavior, National Wildfire Coordinating Group
 
 ## Skillsets
 
@@ -61,4 +63,3 @@ R, ArcGIS Pro, ArcGIS Online, Google Earth Engine, QGIS
 
 Coastal sage scrub plant identification, eDNA collection, insect rearing and net trapping, UTV operation, chainsaw operation and safety
 ::::
-
