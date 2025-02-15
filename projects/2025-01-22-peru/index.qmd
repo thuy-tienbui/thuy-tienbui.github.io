@@ -5,7 +5,7 @@ description: |
 author:
   - name: Thuy-Tien Bui
 date: 2025-01-22
-categories: [GIS, Remote Sensing, Climate]
+categories: [R, GIS, Remote Sensing, Climate]
 image: era5.png
 format:
   html:
