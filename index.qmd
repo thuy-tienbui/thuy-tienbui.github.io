@@ -9,7 +9,7 @@ about:
   links: 
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/thuy-tien-bui
+      href: https://www.linkedin.com/in/thuy-tienbui
     - icon: github
       text: GitHub
       href: https://github.com/thuy-tienbui
