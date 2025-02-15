@@ -9,7 +9,7 @@ about:
   links: 
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/thuy-tien-bui-7b2697184/
+      href: https://www.linkedin.com/in/thuy-tien-bui
     - icon: github
       text: GitHub
       href: https://github.com/thuy-tienbui
@@ -24,7 +24,7 @@ I am a broadly trained ecologist and science communicator that leverages spatial
 
 ### Professional Interests
 
-Landscape ecology | Fire ecology | Geographic Information Systems | Remote Sensing | Climate Resiliency | Habitat Restoration | Collaborative Stewardship
+Landscape ecology \| Fire ecology \| Geographic Information Systems \| Remote Sensing \| Climate Resiliency \| Habitat Restoration \| Collaborative Stewardship
 
 ### Recent Works
 
