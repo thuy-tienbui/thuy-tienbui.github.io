@@ -4,7 +4,7 @@ description: |
   An article on coastal resilience originally published in Perennial: The Undergraduate Environmental Journal of Berkeley
 author:
   - name: Thuy-Tien Bui
-date: 2022-06-06
+date: 2022-01-14
 image: oyster_reef.jpg
 project:
   output-dir: "_site"
