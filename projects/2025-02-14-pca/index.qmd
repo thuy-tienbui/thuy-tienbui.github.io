@@ -1,7 +1,7 @@
 ---
-title: "Principal Component Analysis of Environmental Variables and Global Tree Canopy Cover"
+title: "Principal component analysis of environmental variables and global tree canopy cover"
 description: |
-  Using PCA to determine the relationship between tree canopy cover and various environmental variables
+  Using PCA to determine relationships between tree canopy cover and various environmental variables
 author:
   - name: Thuy-Tien Bui
 date: 2025-02-14

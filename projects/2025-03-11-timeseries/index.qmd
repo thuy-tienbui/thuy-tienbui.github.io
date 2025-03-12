@@ -1,5 +1,5 @@
 ---
-title: "Assessing and Forecasting Willamette Falls Fish Passage"
+title: "Assessing and forecasting Willamette Falls fish passage"
 description: |
   Investigation of time series data to understand and predict trends in fish passage
 author:
@@ -24,11 +24,11 @@ Fish passage is a critical component of river ecosystem health, ensuring migrato
 
 ::::: grid
 ::: g-col-6
-![Fish ladder at Fall Creek Dam in Oregon (Photo by Kristyna Wentz-Graff/OPB)](images/clipboard-2407170813.jpg){fig-align="left" width="375" height="250"}
+![~*Fish\ ladder\ at\ Fall\ Creek\ Dam\ in\ Oregon\ (Photo\ by\ Kristyna\ Wentz-Graff/OPB)*~](fish_ladder.jpg){fig-align="left" width="550" height="370"}
 :::
 
 ::: g-col-6
-![Coho salmon swimming upstream (Photo by Chuck Haney)](images/clipboard-1441478625.png){fig-align="left" height="250"}
+![~*Coho\ salmon\ swimming\ upstream\ (Photo\ by\ Chuck\ Haney)*~](coho_upstream.png){fig-align="left" width="600"}
 :::
 :::::
 
