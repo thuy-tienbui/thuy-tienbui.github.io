@@ -1,0 +1,21 @@
+---
+title: "California Drought Explorer"
+description: |
+  An interactive ShinyApp for exploring California drought data
+author:
+  - name: Thuy-Tien Bui, Sam Lance, Riley Black
+date: 2025-03-21
+categories: [R, Climate, Watersheds]
+image: lake-oroville-drought.jpeg
+format:
+  html:
+    embed-resources: true
+    code-fold: true
+    toc: false
+    page-layout: full
+echo: true
+message: false
+warning: false
+---
+
+[Click here for optimal viewing of the full ShinyApp](https://caldrought.shinyapps.io/explorer/){.button}

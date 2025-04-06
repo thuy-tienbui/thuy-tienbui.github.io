@@ -1,0 +1,20 @@
+---
+title: "Planning for wildfire resilience in Butte County, CA"
+description: |
+  A suitability analysis for wildfire risk interventions in Butte County
+author:
+  - name: Thuy-Tien Bui, Caitlin Grace, Julia Marks
+date: 2022-12-05
+image: camp_fire.jpg
+categories: [GIS, Fire, Forestry]
+html:
+  css: styles.css
+  toc: false
+  page-layout: full
+---
+
+[Click here for optimal viewing of the full StoryMap](https://arcg.is/rLjr0){.button}
+
+<iframe src="https://storymaps.arcgis.com/stories/d6275f601ba140238be546568e526d1c?header" width="1000px" height="800px" frameborder="0" allowfullscreen allow="geolocation">
+
+</iframe>

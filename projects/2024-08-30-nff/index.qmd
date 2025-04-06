@@ -1,0 +1,23 @@
+---
+title: "Tracking and visualizing watershed restoration projects across the Colorado River Basin"
+description: |
+  A project dashboard tool created for the National Forest Foundation's Colorado River Restoration Initiative
+author:
+  - name: Thuy-Tien Bui
+date: 2024-08-30
+image: crb_restore.jpg
+categories: [GIS, Watersheds]
+html:
+  css: styles.css
+  toc: false
+  toc-float: false
+  page-layout: full
+---
+
+### Colorado River Basin Restoration Project Dashboard
+
+This interactive dashboard dynamically tracks project metrics and provides summaries of the restoration methods for staff, funders, and folks curious about NFF's watershed work to visualize and track project goals.
+
+<iframe src="https://nff.maps.arcgis.com/apps/dashboards/22408a9bafbf4e17bd16e5555b292cf8" width="1000px" height="800px" frameborder="0" allowfullscreen allow="geolocation">
+
+</iframe>
