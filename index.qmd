@@ -24,11 +24,13 @@ I am a broadly trained ecologist and science communicator who leverages spatial 
 
 ### Professional Interests
 
-Landscape ecology \| Fire ecology \| Geographic Information Systems \| Remote Sensing \| Climate Resiliency \| Habitat Restoration \| Collaborative Stewardship
+Landscape ecology \| Fire ecology \| Biogeography \| Geographic Information Systems \| Remote Sensing \| Climate Resiliency \| Collaborative Stewardship
 
 ### Recent Works
 
 [Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape)
+
+[California Drought Explorer ShinyApp](https://caldrought.shinyapps.io/explorer/)
 
 [Wildlife Connectivity Across the Central California Coast Region](files/Bui_Calbert_Smith_Final_Report.pdf)
 

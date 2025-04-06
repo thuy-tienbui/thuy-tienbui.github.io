@@ -2,6 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/2025-03-21-drought/index.html",
       "/projects/2025-03-11-timeseries/index.html",
       "/projects/2025-03-01-randomforest/index.html",
       "/projects/2025-02-14-pca/index.html",
