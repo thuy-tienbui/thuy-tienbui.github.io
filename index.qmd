@@ -22,7 +22,7 @@ about:
 
 I am a broadly trained ecologist and science communicator who leverages spatial data science to support conservation and management efforts. Some of my recent projects and experiences are highlighted on this website. Feel free to explore and get in touch!
 
-### Professional Interests
+### Interest Areas
 
 Landscape ecology \| Fire ecology \| Biogeography \| Geographic Information Systems \| Remote Sensing \| Climate Resiliency \| Collaborative Stewardship
 
